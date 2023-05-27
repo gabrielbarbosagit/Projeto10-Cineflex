@@ -2,27 +2,21 @@ import styled from "styled-components";
 
 export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
   return (
+
+    
     <FormContainer>
       <form onSubmit={bookSeats}>
         <label htmlFor="name">Nome do Comprador:</label>
-        <input
-          data-test="client-name"
-          type="text"
-          pattern="^\s*\S.*$"
-          required
-          placeholder="Digite seu nome..."
-          id="name"        
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
+        <input data-test="client-name" type="text" pattern="[a-zA-ZÀ-ú]+([ ]?[a-zA-ZÀ-ú]+)*" required placeholder="Digite seu nome..." id="nome" name="nome" value={name}  onChange={(e) => setName(e.target.value)} />
+
         <label htmlFor="cpf">CPF do Comprador:</label>
         <input
           data-test="client-cpf"
-          pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
-          required
           placeholder="Digite seu CPF..."
           id="cpf"
-          type="number"        
+          type="text"
+          pattern="\d{11}"
+          required
           value={cpf}
           onChange={(event) => setCpf(event.target.value)}
         />
