@@ -11,8 +11,8 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           pattern="[a-zA-ZÀ-ú]+([ ]?[a-zA-ZÀ-ú]+)*"
           required
           placeholder="Digite seu nome..."
-          id="nome"
-          name="nome"
+          id="name"
+          name="name"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
