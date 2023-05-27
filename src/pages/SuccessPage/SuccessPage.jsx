@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import LoadingPage from "../../components/LoadingPage";
 
 export default function SuccessPage({ orderData }) {
   const { name, cpf, seats, selectedSeat } = orderData;
 
   if (orderData === null) {
-    alert("Ocorreu um erro! Volte para home e tente novamente!");
-    return;
+    return <LoadingPage />;
   }
 
   return (

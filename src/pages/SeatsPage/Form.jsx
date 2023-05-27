@@ -7,21 +7,22 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
         <label htmlFor="name">Nome do Comprador:</label>
         <input
           data-test="client-name"
-          placeholder="Digite seu nome..."
-          id="name"
           type="text"
+          pattern="^\s*\S.*$"
           required
+          placeholder="Digite seu nome..."
+          id="name"        
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
         <label htmlFor="cpf">CPF do Comprador:</label>
         <input
           data-test="client-cpf"
+          pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
+          required
           placeholder="Digite seu CPF..."
           id="cpf"
-          type="text"
-          pattern="\d{11}"
-          required
+          type="number"        
           value={cpf}
           onChange={(event) => setCpf(event.target.value)}
         />
