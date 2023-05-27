@@ -1,31 +1,42 @@
-import styled from "styled-components"
+import axios from "axios";
+import React, {useEffect, useState} from "react";
+import styled from "styled-components";
+import {Link} from "react-router-dom";
+import LoadingPage from "../../components/LoadingPage";
 
 export default function HomePage() {
+    const [movies, setMovies] = useState(undefined);
+  
+    useEffect(() => {
+      const URL = "https://mock-api.driven.com.br/api/v8/cineflex/movies";
+      axios
+        .get(URL)
+        .then((response) => setMovies(response.data))
+        .catch((error) => console.log(error.response.data));
+    }, []);
+
+    if (movies === undefined) {
+      return <LoadingPage />
+    };
+  
     return (
-        <PageContainer>
-            Selecione o filme
-
-            <ListContainer>
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster"/>
-                </MovieContainer>
-            </ListContainer>
-
-        </PageContainer>
-    )
-}
+      <PageContainer>
+        Selecione o filme
+  
+        <ListContainer>
+          {movies.map((movie) => (
+            <MovieContainer data-test="movie" key={movie.id}>
+              <Link to={`/sessoes/${movie.id}`}>
+                <img src={movie.posterURL} alt={movie.title} />
+              </Link>
+            </MovieContainer>
+          ))}
+        </ListContainer>
+      </PageContainer>
+    );
+  }
+  
+      
 
 const PageContainer = styled.div`
     display: flex;
