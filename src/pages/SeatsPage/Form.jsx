@@ -22,7 +22,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           data-test="client-cpf"
           placeholder="Digite seu CPF..."
           id="cpf"
-          type="text"
+          type="number"
           pattern="[0-9]{11}"
           required
           value={cpf}
@@ -39,6 +39,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
 }
 
 // Resto do código
+
 
 
 const FormContainer = styled.div`
