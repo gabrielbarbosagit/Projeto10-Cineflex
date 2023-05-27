@@ -14,7 +14,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           id="nome"
           name="nome"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(event) => setName(event.target.value)}
         />
 
         <label htmlFor="cpf">CPF do Comprador:</label>
