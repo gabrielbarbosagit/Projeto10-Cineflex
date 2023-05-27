@@ -14,7 +14,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           id="name"
           name="name"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
 
         <label htmlFor="cpf">CPF do Comprador:</label>
@@ -22,7 +22,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           data-test="client-cpf"
           placeholder="Digite seu CPF..."
           id="cpf"
-          type="number"
+          type="text"
           pattern="[0-9]{11}"
           required
           value={cpf}
@@ -39,7 +39,6 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
 }
 
 // Resto do código
-
 
 
 const FormContainer = styled.div`
