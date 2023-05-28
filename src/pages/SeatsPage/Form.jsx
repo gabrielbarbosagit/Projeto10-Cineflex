@@ -14,7 +14,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           id="name"
           name="name"
           value={name}
-          onChange={(bookSeats) => setName(bookSeats.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
 
         <label htmlFor="cpf">CPF do Comprador:</label>
@@ -26,7 +26,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           pattern="[0-9]{11}"
           required
           value={cpf}
-          onChange={(bookSeats) => setCpf(bookSeats.target.value)}
+          onChange={(e) => setCpf(e.target.value)}
         />
         <Button>
           <button data-test="book-seat-btn" type="submit">
