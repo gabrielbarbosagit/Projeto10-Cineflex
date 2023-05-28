@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
   return (
     <FormContainer>
-      <form onSubmit={bookSeats}>
+      <form onSubmit={bookSeats}> 
         <label htmlFor="name">Nome do Comprador:</label>
         <input
           data-test="client-name"
@@ -14,7 +14,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           id="name"
           name="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(bookSeats) => setName(bookSeats.target.value)}
         />
 
         <label htmlFor="cpf">CPF do Comprador:</label>
@@ -26,7 +26,7 @@ export default function Form({ setName, setCpf, bookSeats, name, cpf }) {
           pattern="[0-9]{11}"
           required
           value={cpf}
-          onChange={(event) => setCpf(event.target.value)}
+          onChange={(bookSeats) => setCpf(bookSeats.target.value)}
         />
         <Button>
           <button data-test="book-seat-btn" type="submit">
